@@ -55,6 +55,14 @@ export function AutoPlayVideo({
             .catch(() => {});
         } else {
           video.pause();
+          // Scrolled fully away: start from the beginning next time (like Instagram).
+          if (!entry.isIntersecting) {
+            try {
+              video.currentTime = 0;
+            } catch {
+              /* ignore */
+            }
+          }
         }
       },
       { threshold: [0, 0.6, 1] }
