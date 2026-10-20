@@ -50,7 +50,13 @@ interface AuthContextValue {
   ensureUserProfile: () => Promise<UserProfile>;
 }
 
-const AuthContext = createContext<AuthContextValue | undefined>(undefined);
+/** Kept on globalThis so hot reloads reuse the same context object. */
+const globalStore = globalThis as unknown as {
+  __flyAuthContext?: React.Context<AuthContextValue | undefined>;
+};
+const AuthContext =
+  globalStore.__flyAuthContext ??
+  (globalStore.__flyAuthContext = createContext<AuthContextValue | undefined>(undefined));
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
