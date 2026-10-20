@@ -56,7 +56,7 @@ export function AutoPlayVideo({
         } else {
           video.pause();
           // Scrolled fully away: start from the beginning next time (like Instagram).
-          if (!entry.isIntersecting) {
+          {
             try {
               video.currentTime = 0;
             } catch {
