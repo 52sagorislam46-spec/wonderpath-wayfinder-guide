@@ -27,8 +27,8 @@ const ringing = new Set();
 function showCallNotification(data, title, tag) {
   return self.registration.showNotification(title, {
     body: data.body || "",
-    icon: data.icon || "/favicon.ico",
-    badge: "/favicon.ico",
+    icon: data.icon || "/icon-192.png",
+    badge: "/icon-192.png",
     tag: tag,
     data: { link: data.link || "/", call: true },
     renotify: true,
@@ -68,8 +68,8 @@ messaging.onBackgroundMessage((payload) => {
   if (isCall) return ringLoop(data, title, tag);
   return self.registration.showNotification(title, {
     body: data.body || "",
-    icon: data.icon || "/favicon.ico",
-    badge: "/favicon.ico",
+    icon: data.icon || "/icon-192.png",
+    badge: "/icon-192.png",
     tag: tag || undefined,
     data: { link: data.link || "/" },
     renotify: Boolean(tag),

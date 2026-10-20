@@ -1,3 +1,4 @@
+import flyLogo from "@/assets/fly-logo.png.asset.json";
 import { useEffect, useState } from "react";
 import { Bird, Eye, EyeOff, Loader2 } from "lucide-react";
 import { verifyPasswordResetCode, confirmPasswordReset } from "firebase/auth";
@@ -98,9 +99,7 @@ export function ResetPasswordPage() {
     <div className="min-h-screen bg-gradient-to-b from-sky-50 via-white to-white flex items-center justify-center p-5">
       <div className="w-full max-w-sm">
         <div className="flex flex-col items-center mb-8">
-          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-sky-400 to-cyan-500 flex items-center justify-center shadow-lg shadow-sky-200 mb-3">
-            <Bird size={32} className="text-white" />
-          </div>
+          <img src={flyLogo.url} alt="Fly" className="w-16 h-16 rounded-2xl shadow-lg mb-3 object-cover" />
           <h1 className="text-3xl font-bold text-gray-900 tracking-tight">
             Fly
           </h1>

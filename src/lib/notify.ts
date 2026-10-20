@@ -95,7 +95,7 @@ export function showNotification(
   try {
     new Notification(title, {
       body,
-      icon: options.icon || "/favicon.ico",
+      icon: options.icon || "/icon-192.png",
       silent: true,
     });
   } catch {
