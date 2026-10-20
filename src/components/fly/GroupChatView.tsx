@@ -1,3 +1,4 @@
+import { swipeReplyHandlers } from "./swipeReply";
 import { PREMIUM_REACTIONS, isPremium } from "./premium";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { getMicStream, withRetry } from "../../lib/mic";
@@ -570,7 +571,7 @@ export function GroupChatView({
               /missed|no answer|declined/i.test(label) && !/·\s*\d/.test(label);
             const CallIcon = isVideo ? Video : Phone;
             return (
-              <div key={message.id} className={`flex ${mine ? "justify-end" : "justify-start"}`}>
+              <div key={message.id} {...swipeReplyHandlers(mine, () => { if (!message.deleted) setReplyTo(message); })} className={`flex ${mine ? "justify-end" : "justify-start"}`}>
                 <div
                   onContextMenu={(event) => {
                     event.preventDefault();
@@ -624,7 +625,7 @@ export function GroupChatView({
             (others.length > 0 &&
               others.every((uid) => message.deliveredTo.includes(uid) || message.seenBy.includes(uid)));
           return (
-            <div key={message.id} className={`flex ${mine ? "justify-end" : "justify-start"}`}>
+            <div key={message.id} {...swipeReplyHandlers(mine, () => { if (!message.deleted) setReplyTo(message); })} className={`flex ${mine ? "justify-end" : "justify-start"}`}>
               <div className="max-w-[78%]">
                 {!mine && (
                   <p className="text-[11px] text-gray-500 mb-1 px-2">
