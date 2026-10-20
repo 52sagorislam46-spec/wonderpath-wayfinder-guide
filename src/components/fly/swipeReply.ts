@@ -15,6 +15,7 @@ export function swipeReplyHandlers(mine: boolean, onReply: () => void) {
   return {
     onTouchStart: (e: TouchEvent<HTMLElement>) => {
       const t = e.touches[0];
+      if (!t) return;
       states.set(e.currentTarget, { x: t.clientX, y: t.clientY, dx: 0, locked: null });
       e.currentTarget.style.transition = "none";
     },
@@ -23,6 +24,7 @@ export function swipeReplyHandlers(mine: boolean, onReply: () => void) {
       const s = states.get(el);
       if (!s) return;
       const t = e.touches[0];
+      if (!t) return;
       const rawX = t.clientX - s.x;
       const rawY = t.clientY - s.y;
       if (!s.locked) {
