@@ -187,7 +187,7 @@ function Reel({
           el.pause();
           flushWatch();
           // Scrolled fully away: restart from the beginning next time.
-          if (entry && !entry.isIntersecting) {
+          {
             try {
               el.currentTime = 0;
             } catch {
