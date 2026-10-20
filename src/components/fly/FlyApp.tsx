@@ -1,3 +1,4 @@
+import flyLogo from "@/assets/fly-logo.png.asset.json";
 import { initAppLanguage } from "../../lib/appLanguage";
 import { useEffect, useMemo, useRef, useState, type MutableRefObject } from "react";
 import { rankForYou, stableAppend, trendingTags, viralIds } from "./recommend";
@@ -87,9 +88,7 @@ function Feed({
   return (
     <div className="pb-20">
       <header className="sticky top-0 bg-white/90 backdrop-blur-xl border-b border-gray-100 px-5 h-14 flex items-center gap-2 z-10">
-        <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-sky-400 to-cyan-500 flex items-center justify-center">
-          <Bird size={18} className="text-white" />
-        </div>
+        <img src={flyLogo.url} alt="Fly" className="w-8 h-8 rounded-xl object-cover" />
         <h1 className="text-xl font-bold text-gray-900">Fly</h1>
         <button
           onClick={onOpenNotifications}

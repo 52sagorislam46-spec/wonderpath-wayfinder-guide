@@ -1,3 +1,4 @@
+import flyLogo from "@/assets/fly-logo.png.asset.json";
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import {
@@ -116,9 +117,7 @@ function CampaignsPage() {
   return (
     <div className="min-h-screen bg-gray-50 pb-20">
       <header className="sticky top-0 bg-white/90 backdrop-blur-xl border-b border-gray-100 px-5 h-14 flex items-center gap-2 z-10">
-        <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-sky-400 to-cyan-500 flex items-center justify-center">
-          <Bird size={18} className="text-white" />
-        </div>
+        <img src={flyLogo.url} alt="Fly" className="w-8 h-8 rounded-xl object-cover" />
         <h1 className="text-xl font-bold text-gray-900">Campaigns</h1>
       </header>
 
