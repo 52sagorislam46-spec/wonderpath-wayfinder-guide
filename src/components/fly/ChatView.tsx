@@ -1,3 +1,4 @@
+import { swipeReplyHandlers } from "./swipeReply";
 import { PREMIUM_REACTIONS, PREMIUM_STICKERS, isPremium } from "./premium";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { getMicStream, withRetry } from "../../lib/mic";
@@ -719,6 +720,7 @@ export function ChatView({
             return (
               <div
                 key={m.id}
+                {...swipeReplyHandlers(mine, () => { if (!m.deleted) setReplyTo(m); })}
                 className={`flex ${mine ? "justify-end" : "justify-start"}`}
               >
                 <div
@@ -776,6 +778,7 @@ export function ChatView({
           return (
             <div
               key={m.id}
+              {...swipeReplyHandlers(mine, () => { if (!m.deleted) setReplyTo(m); })}
               className={`flex ${mine ? "justify-end" : "justify-start"}`}
             >
               <div
